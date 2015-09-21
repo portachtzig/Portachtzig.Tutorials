@@ -1,0 +1,10 @@
+
+<h2>Edit Tutorial "{tutorial.name}"</h2>
+
+<f:form action="update" object="{tutorial}" name="tutorial">
+     <f:render partial="Tutorial/FormFields" arguments="{tutorial:tutorial}" />
+    <div class="neos-footer">
+        <f:link.action action="index" class="neos-button">Cancel</f:link.action>
+        <f:form.submit value="Update tutorial" class="neos-button neos-button-primary" />
+    </div>
+</f:form>

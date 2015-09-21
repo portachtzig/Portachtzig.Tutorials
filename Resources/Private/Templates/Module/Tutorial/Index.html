@@ -1,0 +1,61 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<f:layout name="Default"/>
+<f:section name="Title"></f:section>
+<f:section name="Content">
+
+    <div class="neos-row-fluid neos neos-module media-browser media-module">
+        <f:if condition="{tutorials}">
+            <f:then>
+                <f:widget.paginate objects="{tutorials}" as="paginatedLists">
+
+                    <f:for each="{tutorials}" as="tutorial">
+                        <div class="neos-row-fluid neos neos-module media-browser media-module">
+                            <div class="neos-span5">
+                                <i class="icon-user icon-film pull-left"></i>
+                                <h1>
+                                    <f:link.action action="show" arguments="{tutorial:tutorial}">{tutorial.name}
+                                    </f:link.action>
+                                </h1>
+                                <br/>
+                                <p>
+                                    <f:format.raw>{tutorial.description}</f:format.raw>
+                                </p>
+                                <br><br><br>
+                                <f:security.ifAccess privilegeTarget="Portachtzig.Tutorials:AdminActions">
+                                    <div class="btn-group">
+                                        <f:link.action action="edit" arguments="{tutorial:tutorial}"
+                                                       class="neos-button pull-left" title="Delete the tutorial">
+                                            edit
+                                        </f:link.action>
+                                        <f:form action="delete" arguments="{tutorial:tutorial}" class="pull-left">
+                                            <f:form.submit value="delete" class="button neos-button"/>
+                                        </f:form>
+                                    </div>
+                                    <br>
+                                </f:security.ifAccess>
+                            </div>
+                            <div class="neos-span7">
+                                <f:format.raw>{tutorial.embedcode}</f:format.raw>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="neos-row neos-breadcrumb"></div>
+                        <br>
+                    </f:for>
+                </f:widget.paginate>
+            </f:then>
+            <f:else>
+                <p>No Tutorials found.</p>
+            </f:else>
+        </f:if>
+
+        <f:link.action action="new" controller="Backend" package="Portachtzig.Tutorials"
+                       class="neos-button neos-button-primary hftodos-button-add" title="Create Tutorial">
+            Create Tutorial
+        </f:link.action>
+
+    </div>
+
+</f:section>

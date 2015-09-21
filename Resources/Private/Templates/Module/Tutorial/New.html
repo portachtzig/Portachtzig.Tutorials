@@ -1,0 +1,9 @@
+<h2>New Tutorial</h2>
+
+<f:form action="create" object="{tutorial}" name="newTutorial">
+    <f:render partial="Tutorial/FormFields"/>
+    <div class="neos-footer">
+        <f:link.action action="index" class="neos-button">Cancel</f:link.action>
+        <f:form.submit value="Create Tutorial" class="neos-button neos-button-primary"/>
+    </div>
+</f:form>

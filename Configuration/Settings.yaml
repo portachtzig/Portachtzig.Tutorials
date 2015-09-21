@@ -1,0 +1,27 @@
+TYPO3:
+  Neos:
+    modules:
+      'p80modules':
+        label: 'Portachtzig'
+        description: 'Contains multiple modules related to management of My Project'
+        icon: 'icon-briefcase'
+        submodules:
+          'tutorials':
+            label: 'Tutorials & How-tos'
+            icon: 'icon-medkit'
+            controller: '\Portachtzig\Tutorials\Controller\Module\TutorialController'
+            description: 'This module is for managing tutorials'
+            privilegeTarget: 'Portachtzig.Tutorials:AdminActions'
+            actions:
+              index:
+                label: 'Tutorial List'
+                title: 'Shows a list of Tutorials'
+              new:
+                label: 'New Tutorial'
+                title: 'Create a new Tutorial'
+              delete:
+                label: 'Delete Tutorial'
+                title: 'Delete a Tutorial'
+              edit:
+                label: 'Edit Tutorial'
+                title: 'Edit a Tutorial'              

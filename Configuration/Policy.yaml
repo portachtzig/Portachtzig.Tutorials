@@ -1,0 +1,18 @@
+privilegeTargets:
+  TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
+    'Portachtzig.Tutorials:AdminActions':
+      matcher: 'method(Portachtzig\Tutorials\Controller\Module\TutorialController->.*Action())'
+    'Portachtzig.Tutorials:NeosEditorActions':
+      matcher: 'method(Portachtzig\Tutorials\Controller\Module\TutorialController->(index|initialize)Action())'
+
+roles:
+  'TYPO3.Neos:Administrator':
+    privileges:
+      -
+        privilegeTarget: 'Portachtzig.Tutorials:AdminActions'
+        permission: GRANT
+  'TYPO3.Neos:Editor':
+    privileges:
+      -
+        privilegeTarget: 'Portachtzig.Tutorials:NeosEditorActions'
+        permission: GRANT
